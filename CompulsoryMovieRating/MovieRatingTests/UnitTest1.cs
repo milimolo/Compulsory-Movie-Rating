@@ -8,6 +8,7 @@ namespace MovieRatingTests
         [TestMethod]
         public void TestMethod1()
         {
+
         }
     }
 }

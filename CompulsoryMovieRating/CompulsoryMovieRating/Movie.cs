@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace CompulsoryMovieRating
@@ -12,7 +13,7 @@ namespace CompulsoryMovieRating
 
         public List<Review> reviews;
 
-        public void  loadData(string fileName)
+        public void  LoadData(string fileName)
         {
             using (StreamReader r = new StreamReader(fileName))
             {
@@ -21,6 +22,7 @@ namespace CompulsoryMovieRating
             }
         }
 
+        //opgave 1
         public int GetReviewsFromReviewer(int reviewerId)
         {
             int count = 0;
@@ -34,6 +36,7 @@ namespace CompulsoryMovieRating
             return count;
         }
 
+        //opgave 2
         public int GetAverageGradeFromReviewer(int reviewerId)
         {
             int count = 0;
@@ -54,7 +57,8 @@ namespace CompulsoryMovieRating
             return averageGrade;
         }
 
-        public int getReviewersExactGrade(int reviewerId, int grade)
+        //opgave 3
+        public int GetReviewersExactGrade(int reviewerId, int grade)
         {
             int numberOfGrades = 0;
 
@@ -69,7 +73,8 @@ namespace CompulsoryMovieRating
 
         }
 
-        public int getNumberOfReviewsByMovie(int movieId)
+        //opgave 4
+        public int GetNumberOfReviewsByMovie(int movieId)
         {
             int numberOfReviews = 0;
 
@@ -83,7 +88,9 @@ namespace CompulsoryMovieRating
             return numberOfReviews;
 
         }
-        public int getAverageMovieRating(int movieId)
+
+        //opgave 5
+        public int GetAverageMovieRating(int movieId)
         {
             int count = 0;
             int totalRating = 0;
@@ -103,7 +110,8 @@ namespace CompulsoryMovieRating
             return averageRating;
         }
 
-        public int getSpecificRatingOfMovie(int movieId, int grade)
+        //opgave 6
+        public int GetSpecificRatingOfMovie(int movieId, int grade)
         {
             int numberOfRatings = 0;
 
@@ -117,18 +125,26 @@ namespace CompulsoryMovieRating
             return numberOfRatings;
         }
 
-        /*
-        public int getMoviesWithHighestReview()
+        //opgave 7
+        public int GetMoviesWithHighestReview()
         {
-            List<int>
-
-            foreach (var review in reviews)
-            {
-                
-            }
+            IEnumerable<Review> TopRtdMovies = reviews.Where(r => r.Grade == 5);
+            TopRtdMovies.GroupBy(r => r.Movie).OrderByDescending(gru => gru.Count());
+            var bestMovie = TopRtdMovies.First().Movie;
+            return bestMovie;
         }
-        */
+
+        //opgave 8
+        public int GetTopReviewer()
+        {
+            var topReviwer = reviews.GroupBy(r => r.Reviewer)
+                .OrderByDescending(gru => gru.Count()).Select(gru => gru.Key)
+                .First();
+            return topReviwer;
+        }
     }
+
+
 
     public class Review
     {

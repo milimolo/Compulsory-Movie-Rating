@@ -142,46 +142,6 @@ namespace CompulsoryMovieRating
                 .First();
             return topReviwer;
         }
-
-
-        //opgave 9
-        public int GetTopAverageMovie()
-        {
-            throw new NotImplementedException();
-        }
-
-        //opgave 10
-        public List<int> GetReviewedMoviesByReviewer(int reviewerId)
-        {
-            var revList = reviews.Where(r => r.Reviewer == reviewerId)
-                .OrderByDescending(r => r.Grade)
-                .ThenBy(r => r.Date).ToArray();
-
-            List<int> movies = new List<int>();
-            foreach (var movie in revList)
-            {
-                movies.Add(movie.Movie);
-            }
-
-            return movies;
-        }
-
-        //Opgave 11
-        public List<int> GetReviewersByMovie(int movieId)
-        {
-            var revList = reviews.Where(r => r.Movie == movieId)
-                .OrderByDescending(r => r.Grade)
-                .ThenBy(r => r.Date).ToList();
-
-
-            List<int> reviewers = new List<int>();
-            foreach (var reviewer in revList)
-            {
-                reviewers.Add(reviewer.Reviewer);
-            }
-
-            return reviewers;
-        }
     }
 
 

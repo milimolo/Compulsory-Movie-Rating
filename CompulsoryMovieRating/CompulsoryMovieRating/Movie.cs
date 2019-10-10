@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,18 @@ namespace CompulsoryMovieRating
                 reviews = JsonConvert.DeserializeObject<List<Review>>(json);
             }
         }
+
+        public void PrintTimeInSeconds(Action ac, int repeats)
+        {
+            for (int i = 0; i < repeats; i++)
+            {
+                Stopwatch sw = Stopwatch.StartNew();
+                ac.Invoke();
+                sw.Stop();
+                Console.WriteLine("        Time = {0:f5}", sw.ElapsedMilliseconds / 1000.0);
+            }
+        }
+
 
         //opgave 1
         public int GetReviewsFromReviewer(int reviewerId)

@@ -14,6 +14,11 @@ namespace CompulsoryMovieRating
 
         public List<Review> reviews;
 
+        public Movie(string fileName)
+        {
+            LoadData(fileName);
+        }
+
         public void  LoadData(string fileName)
         {
             using (StreamReader r = new StreamReader(fileName))

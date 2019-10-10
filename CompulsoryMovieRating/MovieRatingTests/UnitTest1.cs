@@ -12,16 +12,14 @@ namespace MovieRatingTests
         [TestMethod]
         public void TestNumberOfReviews()
         {
-            Movie movie = new Movie();
-            movie.LoadData("TestJsons/Test1_1.json");
+            Movie movie = new Movie("TestJsons/Test1_1.json");
             Assert.AreEqual(4, movie.GetReviewsFromReviewer(1));
         }
 
         [TestMethod]
         public void Test1IsNegative()
         {
-            Movie movie = new Movie();
-            movie.LoadData("TestJsons/Test1_1.json");
+            Movie movie = new Movie("TestJsons/Test1_1.json");
             Assert.IsFalse(movie.GetReviewsFromReviewer(1) < 0);
         }
 
@@ -29,8 +27,7 @@ namespace MovieRatingTests
         [TestMethod]
         public void TestAverageReviews()
         {
-            Movie movie = new Movie();
-            movie.LoadData("TestJsons/Test2_1.json");
+            Movie movie = new Movie("TestJsons/Test2_1.json");
             Assert.AreEqual(4, movie.GetAverageGradeFromReviewer(1));
         }
 
@@ -38,8 +35,7 @@ namespace MovieRatingTests
         [ExpectedException(typeof(Exception), "This reviewer has not graded any movies.")]
         public void TestAverageException()
         {
-            Movie movie = new Movie();
-            movie.LoadData("TestJsons/Test2_1.json");
+            Movie movie = new Movie("TestJsons/Test2_1.json");
             movie.GetAverageGradeFromReviewer(4);
         }
 
@@ -47,8 +43,7 @@ namespace MovieRatingTests
         [TestMethod]
         public void TestReviewersExactGrade()
         {
-            Movie movie = new Movie();
-            movie.LoadData("TestJsons/Test3_1.json");
+            Movie movie = new Movie("TestJsons/Test3_1.json");
             Assert.AreEqual(3, movie.GetReviewersExactGrade(2, 4));
         }
 
@@ -56,8 +51,7 @@ namespace MovieRatingTests
         [TestMethod]
         public void TestNumberOfReviewsByMovie()
         {
-            Movie movie = new Movie();
-            movie.LoadData("TestJsons/Test4_1.json");
+            Movie movie = new Movie("TestJsons/Test4_1.json");
             Assert.AreEqual(3, movie.GetNumberOfReviewsByMovie(1488844));
         }
 
@@ -65,8 +59,7 @@ namespace MovieRatingTests
         [TestMethod]
         public void TestAverageMovieRating()
         {
-            Movie movie = new Movie();
-            movie.LoadData("TestJsons/Test5_1.json");
+            Movie movie = new Movie("TestJsons/Test5_1.json");
             Assert.AreEqual(4, movie.GetAverageMovieRating(1488844));
         }
 
@@ -74,8 +67,7 @@ namespace MovieRatingTests
         [ExpectedException(typeof(Exception), "This Movie has no ratings")]
         public void TestAverageMovieRatingException()
         {
-            Movie movie = new Movie();
-            movie.LoadData("TestJsons/Test5_1.json");
+            Movie movie = new Movie("TestJsons/Test5_1.json");
             movie.GetAverageMovieRating(885014);
             
         }
@@ -84,8 +76,7 @@ namespace MovieRatingTests
         [TestMethod]
         public void TestSpecificRatingOfMovie()
         {
-            Movie movie = new Movie();
-            movie.LoadData("TestJsons/Test6_1.json");
+            Movie movie = new Movie("TestJsons/Test6_1.json");
             Assert.AreEqual(3, movie.GetSpecificRatingOfMovie(1488844, 3));
         }
 

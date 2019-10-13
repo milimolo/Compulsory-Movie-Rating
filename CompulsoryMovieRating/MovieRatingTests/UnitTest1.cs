@@ -84,8 +84,7 @@ namespace MovieRatingTests
         [TestMethod]
         public void TestMoviesWithHighestReview()
         {
-            Movie movie = new Movie();
-            movie.LoadData("TestJsons/Test7_1.json");
+            Movie movie = new Movie("TestJsons/Test7_1.json");
             Assert.AreEqual(44937, movie.GetMoviesWithHighestReview());
         }
 
@@ -93,8 +92,7 @@ namespace MovieRatingTests
         [TestMethod]
         public void TestReviewerWithMostReviews()
         {
-            Movie movie = new Movie();
-            movie.LoadData("TestJsons/Test8_1.json");
+            Movie movie = new Movie("TestJsons/Test8_1.json");
             Assert.AreEqual(2, movie.GetTopReviewer());
         }
 
@@ -102,49 +100,43 @@ namespace MovieRatingTests
         [TestMethod]
         public void TestReviewerTopReviewedMovie()
         {
-            Movie movie = new Movie();
-            movie.LoadData("TestJsons/Test10_1.json");
+            Movie movie = new Movie("TestJsons/Test10_1.json");
             Assert.AreEqual(822109, movie.GetReviewedMoviesByReviewer(1).First());
         }
 
         [TestMethod]
         public void TestReviewedMovieByDateAtSameGrade()
         {
-            Movie movie = new Movie();
-            movie.LoadData("TestJsons/Test10_1.json");
+            Movie movie = new Movie("TestJsons/Test10_1.json");
             Assert.AreEqual(885013, movie.GetReviewedMoviesByReviewer(1).ElementAt(1));
         }
 
         [TestMethod]
         public void TestLowestReviewedMovie()
         {
-            Movie movie = new Movie();
-            movie.LoadData("TestJsons/Test10_1.json");
+            Movie movie = new Movie("TestJsons/Test10_1.json");
             Assert.AreEqual(1488844, movie.GetReviewedMoviesByReviewer(1).Last());
         }
 
-        //Test for opgave 10
+        //Test for opgave 11
         [TestMethod]
         public void TestHighestReviewerByMovie()
         {
-            Movie movie = new Movie();
-            movie.LoadData("TestJsons/Test11_1.json");
+            Movie movie = new Movie("TestJsons/Test11_1.json");
             Assert.AreEqual(1, movie.GetReviewersByMovie(822109).First());
         }
 
         [TestMethod]
         public void TestReviewerDateAtSameGrade()
         {
-            Movie movie = new Movie();
-            movie.LoadData("TestJsons/Test11_1.json");
+            Movie movie = new Movie("TestJsons/Test11_1.json");
             Assert.AreEqual(2, movie.GetReviewersByMovie(822109).ElementAt(1));
         }
 
         [TestMethod]
         public void TestLowestReviewerOfMovie()
         {
-            Movie movie = new Movie();
-            movie.LoadData("TestJsons/Test11_1.json");
+            Movie movie = new Movie("TestJsons/Test11_1.json");
             Assert.AreEqual(5, movie.GetReviewersByMovie(822109).Last());
         }
     }

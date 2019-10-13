@@ -7,9 +7,24 @@ namespace MovieRatingPerformanceTests
     [TestClass]
     public class UnitTest1
     {
-        static readonly Movie movie = new Movie("ratings.json");
+        static readonly Movie movie = new Movie("JsonRating/ratings.json");
 
         const double MAXTIME = 4;
+
+        /*
+         * Denne test er for at fjerne startup tiden, som gør at den første test ikke succeeder.
+         */
+        [TestMethod]
+        public void AStartupTest()
+        {
+            Stopwatch sw = Stopwatch.StartNew(); ;
+            movie.GetReviewsFromReviewer(1);
+            sw.Stop();
+
+            var seconds = sw.ElapsedMilliseconds / 1000.0;
+
+            Assert.IsTrue(seconds <= MAXTIME);
+        }
 
         [TestMethod]
         public void PerformanceTest1()

@@ -37,7 +37,7 @@ namespace MovieRatingTests
         {
             Movie movie = new Movie("TestJsons/Test2_1.json");
             movie.GetAverageGradeFromReviewer(4);
-        
+        }
 
         //Test for opgave 3
         [TestMethod]

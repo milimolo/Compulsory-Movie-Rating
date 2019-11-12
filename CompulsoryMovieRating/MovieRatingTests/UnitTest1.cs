@@ -28,7 +28,7 @@ namespace MovieRatingTests
         public void TestAverageReviews()
         {
             Movie movie = new Movie("TestJsons/Test2_1.json");
-            Assert.AreEqual(4, movie.GetAverageGradeFromReviewer(1));
+            Assert.AreEqual(4, movie.GetAverageGradeFromReviewer(2));
         }
 
         [TestMethod]

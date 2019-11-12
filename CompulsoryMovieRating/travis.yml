@@ -1,0 +1,10 @@
+language: csharp
+mono: none
+dotnet: 2.1
+solution: CompulsoryMovieRating.sln
+
+script:
+ - dotnet restore
+ - dotnet build
+ - dotnet test MovieRatingPerformanceTests/MovieRatingPerformanceTests.csproj
+ - dotnet test MovieRatingTests/MovieRatingTests.csproj

@@ -23,7 +23,7 @@ namespace MovieRatingPerformanceTests
 
             var seconds = sw.ElapsedMilliseconds / 1000.0;
 
-            Assert.IsTrue(seconds <= MAXTIME);
+            Assert.IsTrue(seconds => MAXTIME);
         }
 
         [TestMethod]

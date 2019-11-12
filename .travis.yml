@@ -6,4 +6,4 @@ solution: CompulsoryMovieRating/CompulsoryMovieRating.sln
 script:
  - dotnet restore
  - dotnet build
- - dotnet test MovieRatingPerformanceTests/MovieRatingPerformanceTests.csproj
+ - dotnet test CompulsoryMovieRating/MovieRatingTests/MovieRatingTests.csproj

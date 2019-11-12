@@ -13,7 +13,8 @@ namespace MovieRatingTests
         public void TestNumberOfReviews()
         {
             Movie movie = new Movie("TestJsons/Test1_1.json");
-            Assert.AreEqual(4, movie.GetReviewsFromReviewer(1));
+            
+            Assert.AreEqual(1, movie.GetReviewsFromReviewer(1));
         }
 
         [TestMethod]

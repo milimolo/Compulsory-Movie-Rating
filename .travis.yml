@@ -4,6 +4,6 @@ dotnet: 2.1
 solution: CompulsoryMovieRating/CompulsoryMovieRating.sln
 
 script:
- - dotnet restore
- - dotnet build
+ - dotnet restore CompulsoryMovieRating/CompulsoryMovieRating.sln
+ - dotnet build CompulsoryMovieRating/CompulsoryMovieRating.sln
  - dotnet test CompulsoryMovieRating/MovieRatingTests/MovieRatingTests.csproj
